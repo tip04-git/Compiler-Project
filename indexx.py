@@ -4,9 +4,9 @@ import tempfile
 
 # Paths to interpreters
 INTERPRETER_PATHS = {
-    "python": python,
-    "javascript": node,
-    "bash": bash
+    "python":"./interpreters/python/python.exe",
+    "javascript":"/interpreters/nodejs/node.exe",
+    "bash": "./interpreters/bash/bin/bash.exe"
 }
 
 # Detect the language
