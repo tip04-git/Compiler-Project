@@ -2,12 +2,18 @@ import streamlit as st
 import subprocess
 import tempfile
 
-# Paths to interpreters
+import os
+
+# Define interpreter paths based on the environment
+# Check if running on Streamlit Cloud
+is_deployed = os.environ.get("HOME", "").startswith("/home/appuser")
+
+# Define interpreter paths based on the environment
 INTERPRETER_PATHS = {
-    "python": "./interpreters/python/python.exe",
-    "javascript": "./interpreters/nodejs/node-v20.16.0-win-x64/node.exe",
-    "bash": "./interpreters/bash/bin/bash.exe",
+    "python": "./interpreters/python/python.exe" if not is_deployed else "python",
+    "javascript": "./interpreters/nodejs/node.exe" if not is_deployed else "node"
 }
+
 
 # Detect the language
 def detect_language(code):
